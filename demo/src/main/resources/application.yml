@@ -1,6 +1,17 @@
+
+mybatis: 
+   mapper-locations : classpath:com/demo/model/sqlMap/*Mapper.xml
+   config-location : classpath:sqlMapConfig.xml
+   type-aliases-package : com.demo.model
+
 spring:
    thymeleaf:
      prefix : classpath:/templates/
      mode : HTML
      encoding : UTF-8
      cache : false
+   datasource : 
+     driver-class-name : com.mysql.cj.jdbc.Driver
+     url : jdbc:mysql://localhost:3306/digital?serverTimezone=UTC
+     username : root
+     password : 1234

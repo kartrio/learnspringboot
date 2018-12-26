@@ -2,16 +2,16 @@ package com.demo.model;
 
 public class UserInfo {
 	private int id;
-	private String name;
-	private String pwd;
+	private String userName;
+	private String password;
 
 	public UserInfo() {
 	}
 
-	public UserInfo(int id, String name, String pwd) {
+	public UserInfo(int id, String userName, String password) {
 		this.id = id;
-		this.name = name;
-		this.pwd = pwd;
+		this.userName = userName;
+		this.password = password;
 	}
 
 	public int getId() {
@@ -22,25 +22,25 @@ public class UserInfo {
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
+	public String getUserName() {
+		return userName;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 
-	public String getPwd() {
-		return pwd;
+	public String getPassword() {
+		return password;
 	}
 
-	public void setPwd(String pwd) {
-		this.pwd = pwd;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	@Override
 	public String toString() {
-		return "UserInfo [id=" + id + ", name=" + name + ", pwd=" + pwd + "]";
+		return "UserInfo [id=" + id + ", userName=" + userName + ", password=" + password + "]";
 	}
 
 }

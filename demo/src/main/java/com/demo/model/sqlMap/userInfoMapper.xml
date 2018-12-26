@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.demo.dao.UserInfoMapper">
+    
+    <!-- 查询所有的用户信息 -->
+    <select id="findAll" resultType="UserInfo">
+        SELECT * FROM user_info
+    </select>
+    
+    <!-- 新增用户信息 -->
+    <insert id="addUser" parameterType="UserInfo">
+        INSERT INTO user_info(userName, password)
+        VALUES(#{userName},#{password})
+    </insert>
+    
+    <!-- 删除用户信息 -->
+    <delete id="deleteUser" parameterType="int">
+        DELETE FROM user_info WHERE id = #{id}
+    </delete>
+</mapper>
