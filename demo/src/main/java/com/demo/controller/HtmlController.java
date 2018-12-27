@@ -8,37 +8,50 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.demo.model.UserInfo;
-import com.demo.service.UserInfoService;
+import com.demo.service.UserService;
 
 @Controller
 public class HtmlController {
 	
 	@Autowired
-	private UserInfoService userInfoService;
+	private UserService userService;
 	
 	@RequestMapping("/hello")
     public String hello() {
     	return "hello.html";
     }
 	
-	@RequestMapping("/findUserInfo")
-	public ModelAndView findUserInfo() {
-		List<UserInfo> userInfoList = userInfoService.findUserInfo();
-		return new ModelAndView("findUserInfo.html", "userInfoList", userInfoList);
+	/**
+	 * 查询所有用户信息
+	 * @return
+	 */
+	@RequestMapping("/findAll")
+	public ModelAndView findAll() {
+		List<UserInfo> uList = userService.findAll();
+		return new ModelAndView("findUserInfo.html", "userInfoList", uList);
 	}
 	
+	/**
+	 * 新增用户
+	 * @return
+	 */
 	@RequestMapping("/addUserInfo")
 	public String addUserInfo() {
 		UserInfo userInfo = new UserInfo();
-		userInfo.setName("liu");
-		userInfo.setPwd("12345");
-		userInfoService.addUserInfo(userInfo);
-		return "redirect:findUserInfo";
+		userInfo.setUserName("liu");
+		userInfo.setPassword("123");
+		userService.addUser(userInfo);
+		return "redirect:findAll";
 	}
 	
+	/**
+	 * 删除用户
+	 * @param id
+	 * @return
+	 */
 	@RequestMapping("/deleteUserInfo")
 	public String deleteUserInfo(Integer id) {
-		userInfoService.deleteUserInfo(id);
-		return "redirect:findUserInfo";
+		userService.deleteUser(id);
+		return "redirect:findAll";
 	}
 }

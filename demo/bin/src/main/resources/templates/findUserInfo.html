@@ -16,8 +16,8 @@
       </tr>
       <tr th:each="user: ${userInfoList}">
           <td th:text="${user.id}">0</td>
-          <td th:text="${user.userName}">zhangsan</td>
-          <td th:text="${user.password}">1234</td>
+          <td th:text="${user.name}">zhangsan</td>
+          <td th:text="${user.pwd}">1234</td>
           <td>
              <a th:href="@{/addUserInfo}">新增</a> |
              <a th:href="@{/deleteUserInfo(id=${user.id})}">删除</a>  
