@@ -1,6 +1,7 @@
 package com.demo.model;
 
 public class UserInfo {
+	
 	private int id;
 	private String userName;
 	private String password;
