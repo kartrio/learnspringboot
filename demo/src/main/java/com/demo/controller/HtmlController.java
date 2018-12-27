@@ -32,14 +32,20 @@ public class HtmlController {
 	}
 	
 	/**
+	 * 跳转到新增用户界面
+	 * @return
+	 */
+	@RequestMapping("/addUserPage")
+	public String addUserPage() {
+		return "addUserInfo.html";
+	}
+	
+	/**
 	 * 新增用户
 	 * @return
 	 */
 	@RequestMapping("/addUserInfo")
-	public String addUserInfo() {
-		UserInfo userInfo = new UserInfo();
-		userInfo.setUserName("liu");
-		userInfo.setPassword("123");
+	public String addUserInfo(UserInfo userInfo) {
 		userService.addUser(userInfo);
 		return "redirect:findAll";
 	}
